@@ -1,0 +1,15 @@
+{
+  "name": "playingWithAngular2",
+  "version": "1.0.0",
+  "description": "testing angular2 preview",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "piotrekbass",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.8.0",
+    "tsd": "^0.5.7"
+  }
+}
