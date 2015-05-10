@@ -4,9 +4,14 @@
   "description": "testing angular2 preview",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/http-server -p 3333"
   },
   "author": "piotrekbass",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/piotrekbass/playingWithAngular2"
+  },
   "license": "ISC",
   "devDependencies": {
     "http-server": "^0.8.0",
