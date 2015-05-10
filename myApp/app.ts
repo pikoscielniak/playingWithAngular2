@@ -1,25 +1,18 @@
 /// <reference path="../typings/angular2/angular2.d.ts" />
-import {Component, View, bootstrap, For, If} from 'angular2/angular2';
-import {FamousPaintersService} from './famousPaintersService';
+import {Component, View, bootstrap} from 'angular2/angular2';
+import {FamousPaintersComponent} from '../famousPainters/famousPaintersComponent';
 
 // Annotation section
 @Component({
-    selector: 'my-app',
-    injectables: [FamousPaintersService]
+    selector: 'my-app'
 })
 @View({
     templateUrl: 'myApp/myApp.html',
-    directives: [For, If]
+    directives: [FamousPaintersComponent]
 })
 // Component controller
 class MyAppComponent {
-    name:string;
-    names:Array<string>;
-    time:string;
-
-    constructor(famousPaintersService:FamousPaintersService) {
-        this.name = 'Alice';
-        this.names = famousPaintersService.names;
+    constructor() {
     }
 }
 

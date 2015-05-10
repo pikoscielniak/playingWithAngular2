@@ -1,8 +1,15 @@
 <div class="row">
     <div class="col-md-1">
-        <img class="logoImg" src="images/brush.png" />
+        <img class="logoImg" src="images/brush.png"/>
     </div>
     <div class="col-md-11 pull-left">
         <h1>Famous Painters</h1>
     </div>
+</div>
+<div class="row">
+    <ul>
+        <li *for="#name of names">
+            {{ name }}
+        </li>
+    </ul>
 </div>

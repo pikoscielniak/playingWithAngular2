@@ -9,23 +9,26 @@ if (typeof __decorate !== "function") __decorate = function (decorators, target,
 if (typeof __metadata !== "function") __metadata = function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-/// <reference path="../typings/angular2/angular2.d.ts" />
 var angular2_1 = require('angular2/angular2');
-var famousPaintersComponent_1 = require('../famousPainters/famousPaintersComponent');
-// Annotation section
-var MyAppComponent = (function () {
-    function MyAppComponent() {
+var famousPaintersService_1 = require('../famousPainters/famousPaintersService');
+var FamousPaintersComponent = (function () {
+    function FamousPaintersComponent(famousPaintersService) {
+        var _this = this;
+        this.name = 'Alice';
+        famousPaintersService.getPainters().then(function (names) { return _this.names = names; });
+        //this.names = famousPaintersService.names;
     }
-    MyAppComponent = __decorate([
+    FamousPaintersComponent = __decorate([
         angular2_1.Component({
-            selector: 'my-app'
+            selector: 'famous-painters',
+            injectables: [famousPaintersService_1.FamousPaintersService]
         }),
         angular2_1.View({
-            templateUrl: 'myApp/myApp.html',
-            directives: [famousPaintersComponent_1.FamousPaintersComponent]
+            templateUrl: 'famousPainters/famousPainters.html',
+            directives: [angular2_1.For]
         }), 
-        __metadata('design:paramtypes', [])
-    ], MyAppComponent);
-    return MyAppComponent;
+        __metadata('design:paramtypes', [famousPaintersService_1.FamousPaintersService])
+    ], FamousPaintersComponent);
+    return FamousPaintersComponent;
 })();
-angular2_1.bootstrap(MyAppComponent);
+exports.FamousPaintersComponent = FamousPaintersComponent;
