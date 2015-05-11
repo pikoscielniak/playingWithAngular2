@@ -1,4 +1,4 @@
-import {Component, View, For} from 'angular2/angular2';
+import {Component, View, For, If} from 'angular2/angular2';
 import {FamousPaintersService} from '../famousPainters/famousPaintersService';
 
 @Component({
@@ -7,16 +7,21 @@ import {FamousPaintersService} from '../famousPainters/famousPaintersService';
 })
 @View({
     templateUrl: 'famousPainters/famousPainters.html',
-    directives: [For]
+    directives: [For, If]
 })
 // Component controller
 export class FamousPaintersComponent {
-    name:string;
     names:Array<string>;
+    selectedPainter:string;
 
     constructor(famousPaintersService:FamousPaintersService) {
-        this.name = 'Alice';
-        famousPaintersService.getPainters().then((names)=> this.names = names);
-        //this.names = famousPaintersService.names;
+        famousPaintersService.getPainters().then((names)=> {
+            this.names = names
+            this.selectedPainter = this.names[0];
+        });
+    }
+
+    selectedPainterChanged(name) {
+        this.selectedPainter = name;
     }
 }

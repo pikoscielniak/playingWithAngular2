@@ -7,9 +7,15 @@
     </div>
 </div>
 <div class="row">
-    <ul>
-        <li *for="#name of names">
-            {{ name }}
+    <ul class="list-group col-md-4">
+        <li style="list-style: none;" *for="#name of names">
+            <!-- TODO refactor this when angular 2.0 adds something better like for example ngClass in angular 1.x -->
+            <a *if="name == selectedPainter" class="list-group-item active" (click)="selectedPainterChanged(name)">
+                {{ name }}
+            </a>
+            <a *if="name != selectedPainter" class="list-group-item" (click)="selectedPainterChanged(name)">
+                {{ name }}
+            </a>
         </li>
     </ul>
 </div>

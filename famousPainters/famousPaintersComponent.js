@@ -14,10 +14,14 @@ var famousPaintersService_1 = require('../famousPainters/famousPaintersService')
 var FamousPaintersComponent = (function () {
     function FamousPaintersComponent(famousPaintersService) {
         var _this = this;
-        this.name = 'Alice';
-        famousPaintersService.getPainters().then(function (names) { return _this.names = names; });
-        //this.names = famousPaintersService.names;
+        famousPaintersService.getPainters().then(function (names) {
+            _this.names = names;
+            _this.selectedPainter = _this.names[0];
+        });
     }
+    FamousPaintersComponent.prototype.selectedPainterChanged = function (name) {
+        this.selectedPainter = name;
+    };
     FamousPaintersComponent = __decorate([
         angular2_1.Component({
             selector: 'famous-painters',
@@ -25,7 +29,7 @@ var FamousPaintersComponent = (function () {
         }),
         angular2_1.View({
             templateUrl: 'famousPainters/famousPainters.html',
-            directives: [angular2_1.For]
+            directives: [angular2_1.For, angular2_1.If]
         }), 
         __metadata('design:paramtypes', [famousPaintersService_1.FamousPaintersService])
     ], FamousPaintersComponent);

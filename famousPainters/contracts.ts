@@ -4,9 +4,9 @@
 export interface IFamousPainter {
     name:string;
     style:string;
-    examples: IExample[];
+    examples: IPainterExample[];
 }
 
-export interface IExample {
+export interface IPainterExample {
     name:string;
 }
