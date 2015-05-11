@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "./node_modules/.bin/tsc --watch -m commonjs -t es5 --emitDecoratorMetadata ./**/*.ts",
-    "start": "./node_modules/.bin/gulp"
+    "watch": "tsc --watch -m commonjs -t es5 --emitDecoratorMetadata ./**/*.ts",
+    "serve": "gulp"
   },
   "author": "piotrekbass",
   "repository": {

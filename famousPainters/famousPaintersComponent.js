@@ -14,13 +14,14 @@ var famousPaintersService_1 = require('../famousPainters/famousPaintersService')
 var FamousPaintersComponent = (function () {
     function FamousPaintersComponent(famousPaintersService) {
         var _this = this;
-        famousPaintersService.getPainters().then(function (names) {
-            _this.names = names;
-            _this.selectedPainter = _this.names[0];
+        famousPaintersService.getPainters().then(function (painters) {
+            _this.painters = painters;
+            _this.selectedPainter = _this.painters[0];
         });
     }
     FamousPaintersComponent.prototype.selectedPainterChanged = function (name) {
-        this.selectedPainter = name;
+        var painter = this.painters.filter(function (p) { return p.name === name; })[0];
+        this.selectedPainter = painter;
     };
     FamousPaintersComponent = __decorate([
         angular2_1.Component({

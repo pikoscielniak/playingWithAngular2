@@ -1,5 +1,6 @@
 import {Component, View, For, If} from 'angular2/angular2';
 import {FamousPaintersService} from '../famousPainters/famousPaintersService';
+import {IFamousPainter} from './contracts';
 
 @Component({
     selector: 'famous-painters',
@@ -11,17 +12,18 @@ import {FamousPaintersService} from '../famousPainters/famousPaintersService';
 })
 // Component controller
 export class FamousPaintersComponent {
-    names:Array<string>;
-    selectedPainter:string;
+    selectedPainter:IFamousPainter;
+    painters:Array<IFamousPainter>
 
     constructor(famousPaintersService:FamousPaintersService) {
-        famousPaintersService.getPainters().then((names)=> {
-            this.names = names
-            this.selectedPainter = this.names[0];
+        famousPaintersService.getPainters().then((painters:Array<IFamousPainter>)=> {
+            this.painters = painters;
+            this.selectedPainter = this.painters[0];
         });
     }
 
-    selectedPainterChanged(name) {
-        this.selectedPainter = name;
+    selectedPainterChanged(name:string) {
+        var painter = this.painters.filter(p => p.name === name)[0];
+        this.selectedPainter = painter;
     }
 }

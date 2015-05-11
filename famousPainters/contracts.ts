@@ -4,9 +4,9 @@
 export interface IFamousPainter {
     name:string;
     style:string;
-    examples: IPainterExample[];
+    examples: Array<string>;
 }
 
-export interface IPainterExample {
-    name:string;
+export interface IFamousPainterResponse {
+    famousPainters: Array<any>
 }
